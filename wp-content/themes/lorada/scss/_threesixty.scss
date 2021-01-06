@@ -1,0 +1,127 @@
+.lorada-threesixty-view {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	cursor: ew-resize;
+	cursor: -webkit-grab;
+
+	&:active {
+		cursor: ew-resize;
+		cursor: -webkit-grabbing;
+	}
+
+	.hide-images-wrap {
+		display: none;
+	}
+
+	.threed-360-view-images {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		perspective: 800px;
+		-webkit-perspective: 800px;
+
+		img {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			height: auto;
+			transform: translateX(-50%);
+			-webkit-transform: translateX(-50%);
+
+			&.previous-image {
+				visibility: hidden;
+			}
+
+			&.current-image {
+				visibility: visible;
+			}
+		}
+	}
+
+	.spinner {
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+		color: black;
+		font-weight: bolder;
+		background: rgba(255, 255, 255, 0.7);
+		-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+		border-radius: 50%;
+
+		span {
+			line-height: 60px;
+			color: darken($body_font_color, 20%);
+		}
+	}
+
+	.nav_bar {
+		position: absolute;
+		bottom: 30px;
+		left: 50%;
+		margin-left: -42px;
+		z-index: 11;
+		background-color: white;
+		-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+
+		a {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			width: 42px;
+			height: 45px;
+			line-height: 45px;
+			font-size: 0px;
+			color: rgba(0, 0, 0, 1);
+			text-align: center;
+			text-decoration: none;
+
+			&:hover {
+				color: rgba(0, 0, 0, 0.7);
+			}
+
+			&:after {
+				font-family: lorada-font;
+				font-size: 16px;
+				font-weight: bold;
+			}
+
+			&.nav_bar_play, &.nav_bar_stop {
+				display: none;
+			}
+
+			&.nav_bar_previous:after {
+				content: '\eb18';
+			}
+
+			&.nav_bar_next:after {
+				content: '\eb19';
+			}
+		}
+	}
+}
+
+/* html */
+.lorada-threesixty-view:-webkit-full-screen {
+	background:#ffffff;
+	width: 100%;
+	height: 100%;
+	margin-top: 0;
+	padding-top: 200px;
+}
+
+.lorada-threesixty-view:-moz-full-screen {
+	background:#ffffff;
+	width: 100%;
+	height: 100%;
+	margin-top: 0;
+	padding-top: 200px;
+}

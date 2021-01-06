@@ -1,0 +1,258 @@
+/*****************************************************************/
+/*
+/*** Topbar Scss file Compile
+/*
+/*****************************************************************/
+#header-topbar {
+	position: relative;
+	height: 40px;
+	background-color: $topbar_bg_color;
+	width: 100%;
+	z-index: 110;
+
+	&.border-enable {
+		border-bottom: 1px solid #e6e6e6;
+
+		.site-dark-mode & { border-color: lighten( $site_solid_background, 12% ); }
+	}
+
+	.topbar-wrapper {
+		max-width: $topbar_width;
+		margin: 0 auto;
+	}
+
+	.lorada-social-buttons {
+		line-height: 1;
+
+		.lorada-social-button a {
+			line-height: 1;
+			color: $topbar_txt_color !important;
+
+			&:hover {
+				opacity: .7;
+			}
+
+			i { font-size: 12px !important; }
+		}
+	}
+}
+
+.topbar-content {
+	display: flex;
+	height: 40px;
+	align-items: stretch;
+	justify-content: space-between;
+
+	.topbar-txt {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		font-family: $body_font_family;
+		font-size: 12px;
+		color: $topbar_txt_color;
+	}
+
+	.topbar-section {
+		display: flex;
+		align-items: stretch;
+		flex: 1 1 auto;
+		padding: 0 15px;
+	}
+
+	.topbar-right-txt {
+		flex: 0 0 auto;
+		justify-content: flex-end;
+	}
+
+	.topbar-dropdown {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		font-size: 12px;
+		color: $topbar_txt_color;
+		margin-#{$right}: 10px;
+
+		> div {
+			position: relative;
+
+			&:first-child:before,
+			&:after {
+				content: '';
+				display: block;
+				width: 1px; height: 10px;
+				background-color: #a6a6a6;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			.site-dark-mode & {
+				&:first-child:before,
+				&:after { background-color: darken( $topbar_txt_color, 40% ); }
+			}
+
+			&:before {
+				#{$left}: 0;
+			}
+
+			&:after {
+				#{$right}: 0;
+			}
+		}
+
+		a[class*="wcml_selected"] {
+			color: inherit;
+			font-weight: 600;
+			line-height: 40px;
+			padding: 0 10px;
+			text-decoration: none;
+
+			&:hover { opacity: .7; }
+
+			&:after { font-size: 10px; }
+		}
+	}
+}
+
+.topbar-navigation-wrapper {
+	padding: 0;
+	margin-bottom: 0;
+	margin-#{$right}: 5px;
+	list-style: none;
+
+	li {
+		> a {
+			position: relative;
+			display: block;
+			font-size: 12px;
+			line-height: 18px;
+			color: #666;
+			padding: 5px 10px;
+			text-decoration: none;
+		}
+
+		.loradat-menu-marker {
+			display: none;
+		}
+	}
+
+	li.item-level-0 {
+		position: relative;
+		float: $left;
+
+		> a {
+			padding: 0 10px;
+			line-height: 40px;
+			color: $topbar_txt_color;
+
+			&:hover { opacity: .7; }
+		}
+
+
+		&.menu-item-has-children {
+			> a:after {
+				content: '\eb17';
+				display: inline-block;
+				font-family: lorada-font;
+				font-weight: normal;
+				font-style: normal;
+				color: $topbar_txt_color;
+				margin-#{$left}: 5px;
+			}
+		}
+
+		i {
+			display: block;
+			float: $left;
+			font-size: 14px;
+			margin-#{$right}: 10px;
+			line-height: 40px;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			width: 1px;
+			height: 10px;
+			background-color: #a6a6a6;
+			position: absolute;
+			top: 50%;
+			#{$right}: 0;
+			transform: translateY(-50%);
+		}
+
+		&:first-child:before {
+			content: '';
+			display: block;
+			width: 1px;
+			height: 10px;
+			background-color: #a6a6a6;
+			position: absolute;
+			top: 50%;
+			#{$left}: 0;
+			transform: translateY(-50%);
+		}
+
+		.site-dark-mode & {
+			&:after,
+			&:first-child:before { background-color: darken( $topbar_txt_color, 40% ); }
+		}
+
+		&:hover {
+			> .sub-menu-dropdown {
+				animation-duration: .3s;
+				animation-fill-mode: both;
+				animation-name: nav_menu_anim_open;
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	.sub-menu-dropdown {
+		list-style: none;
+		display: none !important;
+		position: absolute;
+		min-width: 150px;
+		max-width: 200px;
+		top: 100%;
+		padding: 15px 0;
+		margin-top: 0px;
+		visibility: hidden;
+		opacity: 0;
+		background-color: #fff;
+		box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);
+		border-top: 1px solid #e6e6e6;
+		transition: opacity .3s ease, visibility .3s ease;
+		animation-duration: .3s;
+		animation-fill-mode: both;
+		animation-name: nav_menu_anim_close;
+		z-index: 300;
+
+		.site-dark-mode & {
+			background-color: $site_solid_background;
+			border-top-color: lighten( $site_solid_background, 12% );
+		}
+
+		&.sub-menu-level-0 {
+			display: block !important;
+		}
+
+		&.has-background {
+			background: none !important;
+		}
+
+		a:hover {
+			color: $site_primary_color;
+		}
+	}
+}
