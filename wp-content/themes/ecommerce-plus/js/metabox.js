@@ -1,1 +1,0 @@
-jQuery(document).ready(function(){jQuery("#ecommerce-plus-ui-tabs").tabs()});

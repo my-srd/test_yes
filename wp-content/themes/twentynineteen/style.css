@@ -6389,35 +6389,3 @@ svg {
 .gallery-item > div > a:focus {
   box-shadow: 0 0 0 2px #0073aa;
 }
-header{
-    background-color: #222B35;
-    color: white;
-    text-transform: uppercase;
-}
-.top-bar{
-    text-align: right;
-    margin-right: 20px;
-}
-.top-bar span{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.top-right span{
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.navbar-brand{
-    margin-top: -20px;
-}
-#navbarSupportedContent{
-    margin-left: 5%;
-}
-.nav-link{
-    color: white;
-}
-.bottom-bar a{
-    font-size: 13px;
-    color: black;
-    text-transform: uppercase;
-}
